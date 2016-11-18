@@ -125,3 +125,93 @@ GPS位置, 与数据库中存储节点做附近位置匹配, 即对应到相应�
 #### evernote/wiznote
 TODO: 对应印象笔记和为知笔记两款软件中某条笔记, 需要研究相关API后再规定。
 
+## API使用示例
+
+### 模型
+其中Option为可选
+
+```scala
+  case class Place(id: String, name: String) extends _idRename
+  case class Item(title: String, `type`: String, content: String,
+                  place: String, owner: String, id: Option[ObjectId] = None) extends _idRename {
+    def withId(id: ObjectId) = Item(title, `type`, content, place, owner, Some(id))
+  }
+  case class User(username: String, name: String)
+  case class UserPass(username: String, name: String, password: String) {
+    def asUser = User(username, name)
+  }
+```
+
+### 示例
+
+```shell
+/imh/item GET 用户所有item
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:18:54]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET  localhost:8080/imh/item
+[{"title":"title1","type":"html","content":"<h1>test</h1>","place":"001","owner":"zhranklin","id":"582eebcc14ec591dd38b6aa3"},{"title":"title1","type":"html","content":"<h1>test</h1>","place":"001","owner":"zhranklin","id":"582f065f14ec593c0122a661"}]%
+
+/imh/item POST 添加item
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:40:33]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X POST -d '{"title": "titlexxx", "type":"html", "content": "<h1>test</h1>", "place": "001", "owner": "zhranklin"}' localhost:8080/imh/item
+{"title":"titlexxx","type":"html","content":"<h1>test</h1>","place":"001","owner":"zhranklin","id":null}
+
+/imh/item/<id> PUT 修改id为<id>的item
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:28:41]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X PUT -d '{"title": "title1", "type":"html", "content": "<h1>testtest</h1>", "place": "001", "owner": "zhranklin"}' localhost:8080/imh/item/582eebcc14ec591dd38b6aa3
+{"title":"title1","type":"html","content":"<h1>testtest</h1>","place":"001","owner":"zhranklin"}%
+
+/imh/item/<id> GET 获取id为<id>的item
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:28:53]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/item/582eebcc14ec591dd38b6aa3
+{"title":"title1","type":"html","content":"<h1>testtest</h1>","place":"001","owner":"zhranklin","id":"582eebcc14ec591dd38b6aa3"}%
+
+/imh/item/<id> DELETE 删除 同理
+
+
+/imh/place的道理一样
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:58:33]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X POST -d '{"id": "001", "name": "二基楼"}' localhost:8080/imh/place
+{"id":"001","name":"二基楼"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:58:52]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/place/001
+{"id":"001","name":"二基楼"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:58:56]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X PUT -d '{"id": "002", "name": "二基楼"}' localhost:8080/imh/place/001
+There was an internal server error.%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [22:59:26]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X PUT -d '{"id": "001", "name": "综合楼"}' localhost:8080/imh/place/001
+{"id":"001","name":"综合楼"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:00:09]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/place/001                                                                 {"id":"001","name":"综合楼"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:00:39]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X DELETE localhost:8080/imh/place/001
+{"id":"001","name":"综合楼"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:00:53]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/place/001
+There was an internal server error.%
+(暂时还没做任何异常处理)
+
+
+user
+
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:01:53]
+→ curl -u zhranklin:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/user
+{"username":"zhranklin","name":"zw"}%
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:06:27]
+→ curl -H 'Content-Type: application/json' -X POST -d '{"username": "sht", "password": "pass", "name": "束晗涛"}' localhost:8080/imh/user
+{"username":"sht","name":"束晗涛"}
+
+
+# Zhranklin at sc.10086.cn.defaultbadlist in ~/Dev/notice_crawler on git:master ✖︎ [23:07:45]
+→ curl -u sht:pass -H 'Content-Type: application/json' -X GET localhost:8080/imh/user
+{"username":"sht","name":"束晗涛"}
+```
