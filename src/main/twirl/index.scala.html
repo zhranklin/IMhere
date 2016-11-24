@@ -1,0 +1,26 @@
+@base("index") {
+<div class="mission-item panel panel-default row" th:each="m:${missions}">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><img src="test.jpg" alt="head" th:text="${m.producer}"/><font
+            color="303f9f">StupidGuy</font></div>
+    <div class="panel-body">
+        <p th:text="${m.description}"><font color="303f9f">帮我去西南门去快递，然后到一舍和二舍之间拿外卖，最后送到二基楼。</p>
+    </div>
+
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item"><i class="glyphicon glyphicon-hand-right"></i><font color="303f9f">类型</font>
+            <th:block th:text="${m.start}"><font color="303f9f">跑腿</font></th:block>
+        </li>
+        <li class="list-group-item"><i class="glyphicon glyphicon-flag"></i><font color="303f9f">任务地点：</font>
+            <th:block th:text="${m.start}"><font color="303f9f">西南门&#8594二基楼</font></th:block>
+        </li>
+        <li class="list-group-item"><i class="glyphicon glyphicon-time"></i><font color="303f9f">时间：</font>
+            <th:block th:text="${m.due}"><font color="303f9f">2016.11.21 15:00</font></th:block>
+        </li>
+        <li class="list-group-item">
+            <button class="button button-rounded button-primary">我要帮</button>
+        </li>
+    </ul>
+</div>
+}

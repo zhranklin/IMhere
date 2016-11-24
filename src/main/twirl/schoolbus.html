@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../resources/css/main.css"/>
+    <link rel="stylesheet" href="../resources/css/buttons.css"/>
+    <title>帮帮</title>
+</head>
+<body>
+<div class="create-form container"></div>
+<div class="container">
+    <div class="row main-view">
+               <div class="mission-item panel panel-default row" th:each="m:${missions}">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><img src="test.jpg" alt="head" th:text="${m.producer}"/><font color = "303f9f">StupidGuy</font></div>
+            <div class="panel-body">
+                <table>
+            <thead>
+                <tr>
+                    <th>华西—江安</th>
+                    <th>江安—华西</th>
+                    <th>望江—江安</th>
+                    <th>江安—望江</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>7:15</td>
+                    <td>江安点8:20</td>
+                    <td>7:10</td>
+                    <td>"文星花园、江安花园7:10到江安点7:20"</td>
+                </tr>
+                <tr>
+                    <td>7:40</td>
+                    <td>江安点8:40</td>
+                    <td>7:20</td>
+                    <td>"文星花园7：40 江安花园7：50"</td>
+                </tr>
+                <tr>
+                    <td>9:10</td>
+                    <td>江安点9:00</td>
+                    <td>7:30</td>
+                    <td>"文星花园、江安花园8:10 到江安点:8:20"</td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td>10:15行政楼</td>
+                    <td>7:40</td>
+                    <td>江安点8:40</td>
+                </tr>
+                <tr>
+                    <td>11:10</td>
+                    <td>12:10行政楼</td>
+                    <td>7:50</td>
+                    <td>江安点9:00</td>
+                </tr>
+                <tr>
+                    <td>12:10</td>
+                    <td>13:00行政楼</td>
+                    <td>8:10</td>
+                    <td>10:15行政楼</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td>14:55行政楼</td>
+                    <td>8:20</td>
+                    <td>11:20行政楼</td>
+                </tr>
+                <tr>
+                    <td>13:55</td>
+                    <td>15:45行政楼</td>
+                    <td>9:00</td>
+                    <td>12:10行政楼</td>
+                </tr>
+                <tr>
+                    <td>14:50</td>
+                    <td>16:35行政楼</td>
+                    <td>10:10</td>
+                    <td>13:00行政楼</td>
+                </tr>
+                <tr>
+                    <td>15:40</td>
+                    <td>17:20行政楼</td>
+                    <td>10:50</td>
+                    <td>13:25行政楼</td>
+                </tr>
+                <tr>
+                    <td>16:50</td>
+                    <td>17:50行政楼</td>
+                    <td>11:10</td>
+                    <td>14:00行政楼</td>
+                </tr>
+                <tr>
+                    <td>17:20</td>
+                    <td>18:30一基楼</td>
+                    <td>12:10</td>
+                    <td>14:55行政楼</td>
+                </tr>
+                <tr>
+                    <td>17:50（至文星花园）</td>
+                    <td>18:50一基楼</td>
+                    <td>12:30</td>
+                    <td>15:45行政楼</td>
+                </tr>
+                <tr>
+                    <td>18:15</td>
+                    <td>19:40一基楼</td>
+                    <td>13:00</td>
+                    <td>16:35行政楼</td>
+                </tr>
+                <tr>
+                    <td>19:30</td>
+                    <td>21:20一基楼</td>
+                    <td>13:55</td>
+                    <td>17:10行政楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>（江安-华西-望江</td>
+                    <td>14:30</td>
+                    <td>17:30行政楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>15:00</td>
+                    <td>17:50行政楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>15:30</td>
+                    <td>18:30一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>15:45</td>
+                    <td>18:50一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>16:50</td>
+                    <td>19:00一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>17:20</td>
+                    <td>20:00一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>18:00（至文星花园）</td>
+                    <td>21:20一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>18:15</td>
+                    <td>22:15一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>18:50（至文星花园）</td>
+                    <td>22:30一基楼</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>19:30（至文星花园）</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>20:30</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>21:10</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>21:40</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>22:30</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/main.js"></script>
+</body>
+</html>

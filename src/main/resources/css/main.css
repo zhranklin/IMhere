@@ -1,0 +1,169 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	z-index: 0;
+    color: #303F9F;
+}
+.container {
+	width: 100%;
+	padding: 0;
+}
+.top-nav {
+	background-color: rgba(8, 46, 84, 1);
+	color: rgba(255, 255, 255, 1);
+	position: fixed;
+	top: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 20px;
+	height: 46px;
+	z-index: 100;
+}
+.top-nav .nav-item {
+	margin-top: 8px;
+}
+.top-nav .nav-item button{
+	padding: 0;
+}
+.top-nav .title {
+	font-size: 16px;
+	margin-top: 9px;
+	margin-right: -18px;
+}
+.top-nav .btn-add {
+	padding: 0;
+}
+.top-nav .head {
+	padding-left: 10px;
+}
+.top-nav .head img{
+	height: 25px;
+	width: auto;
+	margin-right: 2px;
+	border-radius: 50%;
+	margin-bottom: 5px;
+}
+.bottom-nav {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: rgba(250, 250, 250, 0.9);
+	border-top: solid 1px rgba(200, 200, 200, 1);
+	padding-top: 10px;
+	margin: 0;
+}
+.bottom-nav .glyphicon{
+	font-size: 24px;
+	color: rgba(8, 46, 84, 1);
+}
+.bottom-nav .nav-item {
+	white-space: nowrap;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+}
+.main-view {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	margin-top: 50px;
+	padding-bottom: 50px;
+}
+.main-view .mission-view {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.mission-item {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.mission-item img{
+	height: 25px;
+	width: auto;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.mission-item .glyphicon {
+	margin-right: 5px;
+}
+.list-group-item button {
+	width: 100%;
+	background-color: rgba(8, 46, 84, 1);
+}
+.filter {
+	margin: 5px 0 10px 0;	
+}
+.filter-option {
+	border-top: solid 1px rgba(200, 200, 200, 1);
+	border-bottom: solid 1px rgba(200, 200, 200, 1);
+}
+.filter .filter-item i {
+	margin-left: 5px;
+	font-size: 12px;
+	font-weight: lighter;
+	color: rgba(200, 200, 200, 1);
+}
+.filter .filter-item:nth-child(even) {
+	border-left: solid 1px rgba(200, 200, 200, 1);
+	border-right: solid 1px rgba(200, 200, 200, 1);
+}
+.filter-option button {
+	border: none;
+	background-color: #FFF;
+}
+.filter-result {
+	margin-top: 5px; 
+	padding: 0;
+}
+.filter-result i {
+	margin-right: 5px;
+	color: rgba(8, 46, 84, 1);
+}
+.filter-result ul {
+	list-style: none;
+	border-bottom: solid 1px rgba(200, 200, 200, 1);
+}
+.filter-result input {
+	width: 100%;
+	border: solid 1px rgba(200, 200, 200, 1);
+}
+.filter-result button {
+	border-radius: 20px;
+	line-height: 0;
+	height: 30px;
+	margin: 5px 0 5px 0; 
+}
+.main-view .info {
+	margin: 0 2.5% 0 2.5%;
+	border-left: none;
+	border-right: none;
+}
+.main-view .info img{
+	height: 50px;
+	width: auto;
+	margin-right: 2px;
+	border-radius: 50%;
+	margin-bottom: 5px;
+	float: right;
+	padding: 0;
+}
+.main-view .quit-btn {
+	width: 95%;
+	margin: 20px auto 0 auto;
+	padding: 0;
+}
+.main-view .quit-btn button {
+	background-color: rgba(8, 46, 84, 1);
+	width: 100%;
+}
+.main-view .info p {
+	padding: 0;
+}
+.create-form {
+	position: absolute;
+	z-index: 200;
+}
+.create-bg {
+	background-color: rgba(8, 46, 84, 0.5);
+	height: 736px;
+}

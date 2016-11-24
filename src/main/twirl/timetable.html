@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../resources/css/main.css"/>
+    <link rel="stylesheet" href="../resources/css/buttons.css"/>
+    <title>帮帮</title>
+</head>
+<body>
+<div class="create-form container"></div>
+<div class="container">
+    <div class="row main-view">
+               <div class="mission-item panel panel-default row" th:each="m:${missions}">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><img src="test.jpg" alt="head" th:text="${m.producer}"/><font color = "303f9f">StupidGuy</font></div>
+            <div class="panel-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                            <th>星期日</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>第一节</td>
+                            <td>大学物理（理工）(江安一教C座C407)</td>
+                            <td>离散数学（双语）(江安综合楼B座B104)</td>
+                            <td>学术研讨-I：论文研读（双语）(江安文科楼二区112)</td>
+                            <td>"英语听说与翻译（三）(江安综合楼B座B110) 英语阅读与写作（三）(江安综合楼B座B110)"</td>
+                            <td></td>
+                            <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第二节</td>
+                            <td>大学物理（理工）(江安一教C座C407)</td>
+                            <td>离散数学（双语）(江安综合楼B座B104)</td>
+                            <td>学术研讨-I：论文研读（双语）(江安文科楼二区112)</td>
+                            <td>"英语听说与翻译（三）(江安综合楼B座B110) 英语阅读与写作（三）(江安综合楼B座B110)"</td>
+                            <td></td>
+                            <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第三节</td>
+                            <td>数学分析-1 (江安文科楼三区501)</td>
+                            <td>离散数学（双语）(江安综合楼B座B104)</td>
+                            <td>数学分析-1(江安一教B座B405)</td>
+                            <td></td>
+                            <td>数学分析-1(江安综合楼C座C104)</td>
+                            <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第四节</td>
+                            <td>数学分析-1 (江安文科楼三区501)</td>
+                            <td></td>
+                            <td>数学分析-1(江安一教B座B405)</td>
+                            <td>数学分析-1(江安综合楼C座C104)</td>
+                            <td></td>
+                            <td>毛泽东思想和中国特色社会主义理论体系概论(江安综合楼C座C105)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第五节</td>
+                            <td>体育  (江安体育场体育场2号)</td>
+                            <td>计算机网络（双语） (江安实验室二基楼B400)</td>
+                            <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
+                            <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
+                            <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第六节</td>
+                            <td>体育  (江安体育场体育场2号)</td>
+                            <td>计算机网络（双语） (江安实验室二基楼B400)</td>
+                            <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
+                            <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
+                            <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第七节</td>
+                            <td></td>
+                            <td>计算机网络（双语） (江安实验室二基楼B400)</td>
+                            <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
+                            <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
+                            <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第八节</td>
+                            <td></td>
+                            <td>计算机网络课程设计 (江安实验室二基楼B400)   数据结构与算法分析课程设计 (江安实验室二基楼B400)    离散数学（双语） (江安综合楼B座B104)  计算机组成原理实验 (江安实验室二基楼B308)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第九节</td>
+                            <td></td>
+                            <td>计算机网络课程设计 (江安实验室二基楼B400)</td>
+                            <td>数据结构与算法分析课程设计 (江安实验室二基楼B400)</td>
+                            <td>离散数学（双语） (江安综合楼B座B104)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>第十节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>形势与政策(江安综合楼C座C407)</td>
+                        </tr>
+                        <tr>
+                            <td>第十一节</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>形势与政策(江安综合楼C座C407)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+               </div>
+    </div>
+</div>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/main.js"></script>
+</body>
+</html>
+
