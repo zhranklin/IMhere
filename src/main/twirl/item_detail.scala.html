@@ -1,15 +1,10 @@
 @import com.zhranklin.imhere.Models._
 @(item: Item)
-@base("index") {
-  <div class="mission-item panel panel-default row">
-      <!-- Default panel contents -->
-    <div class="panel-heading"><img src="test.jpg" alt="head"/><font color="303f9f">@{item.title}</font></div>
-      <!-- List group -->
-    <ul class="list-group">
-      @item_meta(item)
-    </ul>
-    <div class="panel-body">
-      @Html(item.content)
-    </div>
+@panel{@{item.title}} {
+  <ul class="list-group">
+  @item_meta(item)
+  </ul>
+  <div class="panel-body">
+  @Html(item.content)
   </div>
 }

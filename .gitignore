@@ -17,3 +17,4 @@ fabric.properties
 lib_managed/
 src_managed/
 target
+.swp

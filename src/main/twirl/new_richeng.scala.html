@@ -1,0 +1,24 @@
+@import com.zhranklin.imhere.ModelDemo.places
+@panel {添加日程} {
+  <form action="#" method="post">
+    <table class="table">
+      <tbody>
+        <tr><th>提醒时间</th><td>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="checkbox" name="need_time" value="true">
+            </span>
+            <input type="datetime-local" name="time" class="form-control">
+          </div>
+        </td></tr>
+        <tr><th>地点</th><td><select name="place">
+          @for(pl ← places){
+            <option value="@pl.name">@pl.name</option>
+          }
+        </select></td></tr>
+        <tr><th>内容</th><td><input type="text" name="content" placeholder="请填写提醒内容" class="form-control"></td></tr>
+        <tr><td colspan="2"><button class="button button-rounded button-primary" type="submit">添加</button></td></tr>
+      </tbody>
+    </table>
+  </form>
+}

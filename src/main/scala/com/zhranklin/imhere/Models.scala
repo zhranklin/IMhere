@@ -2,34 +2,39 @@ package com.zhranklin.imhere
 
 import java.time._
 
-import com.zhranklin.imhere.Models.Item
+import com.zhranklin.imhere.Models._
 import org.jsoup.Jsoup
+
+import scala.collection.mutable
 
 /**
  * Created by Zhranklin on 16/10/5.
  */
 object Models {
+
   case class Place(id: String, name: String)
 
   case class Item(id: Int, owner: String, title: String, `type`: String, showType: String, content: String, date: LocalDateTime, place: String) {
     def abs = `type` match {
       case "html" ⇒
         Jsoup.parse(content).body().text().take(200)
+      case "text" ⇒
+        content.take(200)
     }
     def withId(id: Int) = Item(id, owner, title, `type`, showType, content, date, place)
   }
 
-  case class User(username: String, name: String)
+  case class User(username: String, name: String, gender: String, birthDate: LocalDate, stuId: String, description: String)
 
   case class UserPass(username: String, name: String, password: String) {
-    def asUser = User(username, name)
+//    def asUser = User(username, name)
   }
 
 }
 
 object ModelDemo {
-  val rawItems: List[Item] = List(("四川大学校车时刻表", "校车站",
-    <table>
+  val rawItems: mutable.MutableList[Item] = mutable.MutableList(("四川大学校车时刻表", "校车站",
+    <table class="table">
       <thead>
         <tr>
           <th>华西—江安</th>
@@ -216,7 +221,7 @@ object ModelDemo {
         </tr>
       </tbody>
     </table>), ("课表", "教学楼",
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th></th>
@@ -229,94 +234,93 @@ object ModelDemo {
           <th>星期日</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
           <td>第一节</td>
-          <td>大学物理（理工）(江安一教C座C407)</td>
-          <td>离散数学（双语）(江安综合楼B座B104)</td>
-          <td>学术研讨-I：论文研读（双语）(江安文科楼二区112)</td>
-          <td>"英语听说与翻译（三）(江安综合楼B座B110) 英语阅读与写作（三）(江安综合楼B座B110)"</td>
+          <td>大物</td>
+          <td>离散</td>
           <td></td>
-          <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+          <td>英语</td>
+          <td></td>
+          <td>毛概</td>
           <td></td>
         </tr>
         <tr>
           <td>第二节</td>
-          <td>大学物理（理工）(江安一教C座C407)</td>
-          <td>离散数学（双语）(江安综合楼B座B104)</td>
-          <td>学术研讨-I：论文研读（双语）(江安文科楼二区112)</td>
-          <td>"英语听说与翻译（三）(江安综合楼B座B110) 英语阅读与写作（三）(江安综合楼B座B110)"</td>
+          <td>大物</td>
+          <td>离散</td>
           <td></td>
-          <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+          <td>英语</td>
+          <td></td>
+          <td>毛概</td>
           <td></td>
         </tr>
         <tr>
           <td>第三节</td>
-          <td>数学分析-1 (江安文科楼三区501)</td>
-          <td>离散数学（双语）(江安综合楼B座B104)</td>
-          <td>数学分析-1(江安一教B座B405)</td>
+          <td>数分</td>
+          <td>离散</td>
+          <td>数分</td>
           <td></td>
-          <td>数学分析-1(江安综合楼C座C104)</td>
-          <td>毛泽东思想和中国特色社会主义理论体系概论 (江安综合楼C座C105)</td>
+          <td>数分</td>
+          <td>毛概</td>
           <td></td>
         </tr>
         <tr>
           <td>第四节</td>
-          <td>数学分析-1 (江安文科楼三区501)</td>
+          <td>数分</td>
           <td></td>
-          <td>数学分析-1(江安一教B座B405)</td>
-          <td>数学分析-1(江安综合楼C座C104)</td>
+          <td>数分</td>
+          <td>数分</td>
           <td></td>
-          <td>毛泽东思想和中国特色社会主义理论体系概论(江安综合楼C座C105)</td>
+          <td>毛概</td>
           <td></td>
         </tr>
         <tr>
           <td>第五节</td>
-          <td>体育 (江安体育场体育场2号)</td>
-          <td>计算机网络（双语） (江安实验室二基楼B400)</td>
-          <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
-          <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
-          <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+          <td>体育</td>
+          <td>计网</td>
+          <td>数构</td>
+          <td>计组</td>
+          <td>计组</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>第六节</td>
-          <td>体育 (江安体育场体育场2号)</td>
-          <td>计算机网络（双语） (江安实验室二基楼B400)</td>
-          <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
-          <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
-          <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+          <td>体育</td>
+          <td>计网</td>
+          <td>数构</td>
+          <td>计组</td>
+          <td>计组</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>第七节</td>
           <td></td>
-          <td>计算机网络（双语） (江安实验室二基楼B400)</td>
-          <td>数据结构与算法分析（全英文） (江安综合楼B座B105)</td>
-          <td>计算机组成原理与汇编语言（双语） (江安文科楼二区112)</td>
-          <td>计算机组成原理实验 (江安实验室二基楼B308)</td>
+          <td>计网</td>
+          <td>数结</td>
+          <td>计组</td>
+          <td>计组</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>第八节</td>
           <td></td>
-          <td>计算机网络课程设计 (江安实验室二基楼B400) 数据结构与算法分析课程设计 (江安实验室二基楼B400) 离散数学（双语） (江安综合楼B座B104) 计算机组成原理实验 (江安实验室二基楼B308)</td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>计网</td>
+          <td>数构</td>
+          <td>离散</td>
+          <td>计组</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>第九节</td>
           <td></td>
-          <td>计算机网络课程设计 (江安实验室二基楼B400)</td>
-          <td>数据结构与算法分析课程设计 (江安实验室二基楼B400)</td>
-          <td>离散数学（双语） (江安综合楼B座B104)</td>
+          <td>计网</td>
+          <td>数构</td>
+          <td>离散</td>
           <td></td>
           <td></td>
           <td></td>
@@ -329,7 +333,7 @@ object ModelDemo {
           <td></td>
           <td></td>
           <td></td>
-          <td>形势与政策(江安综合楼C座C407)</td>
+          <td>行教</td>
         </tr>
         <tr>
           <td>第十一节</td>
@@ -339,7 +343,7 @@ object ModelDemo {
           <td></td>
           <td></td>
           <td></td>
-          <td>形势与政策(江安综合楼C座C407)</td>
+          <td>行教</td>
         </tr>
       </tbody>
     </table>)
@@ -347,5 +351,19 @@ object ModelDemo {
     case (title, place, html) ⇒ Item(0, "public", title, "html", "实用信息", html.toString(), LocalDateTime.of(LocalDate.of(2016, 11, 20), LocalTime.MIDNIGHT), place)
   }
 
-  val items = rawItems.zipWithIndex.map(tp ⇒ tp._1.withId(tp._2))
+  def items = {
+    println("asdfasdfasd")
+    rawItems.zipWithIndex.map(tp ⇒ tp._1.withId(tp._2))
+  }
+
+  val users = mutable.MutableList(
+    User("sht", "束晗涛", "男", LocalDate of (1996, 7, 10), "2014141462195", null)
+  )
+
+  val places = mutable.MutableList(
+    Place("001", "二基楼"),
+    Place("002", "教学楼"),
+    Place("003", "宿舍区"),
+    Place("004", "商业街")
+  )
 }

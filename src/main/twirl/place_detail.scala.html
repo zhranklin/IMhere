@@ -1,0 +1,13 @@
+@import com.zhranklin.imhere.Models._
+@(uuid: String)(name: String)(mac: String)(strength: String)(distance: String)
+@panel{位置信息} {
+  <table class="table">
+    <tbody>
+      <tr><th>地点</th><td>@name</td></tr>
+      <tr><th>设备UUID</th><td>@uuid</td></tr>
+      <tr><th>MAC地址</th><td>@mac</td></tr>
+      <tr><th>强度</th><td>@strength</td></tr>
+      <tr><th>估计距离</th><td>@distance</td></tr>
+    </tbody>
+  </table>
+}

@@ -1,0 +1,22 @@
+@import com.zhranklin.imhere.Models._
+@(user: User)
+@panel{个人信息} {
+  <div class="panel-body">
+    <div class="media">
+      <a class="media-left" href="#"> <img src="/head/@(user.username).jpg" alt="head"> </a>
+      <div class="media-body">
+        <h4 class="media-heading">@user.username</h4>
+        <p><b>个人简介: </b></p>
+        <p>@(Option(user.description).getOrElse("暂无个人简介"))</p>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <tbody>
+      <tr><th>姓名</th><td>@user.name</td></tr>
+      <tr><th>性别</th><td>@user.gender</td></tr>
+      <tr><th>出生日期</th><td>@user.birthDate</td></tr>
+      <tr><th>绑定学号</th><td>@user.stuId</td></tr>
+    </tbody>
+  </table>
+}

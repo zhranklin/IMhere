@@ -2,19 +2,22 @@
 @(items: Seq[Item])
 @base("index") {
   @for(item ← items){
-    <div class="mission-item panel panel-default row">
-        <!-- Default panel contents -->
-      <div class="panel-heading"><img src="test.jpg" alt="head"/><font color="303f9f">@{item.title}</font></div>
-        <!-- List group -->
+    @panel{@item.title}{
       <ul class="list-group">
         @item_meta(item)
-        <li class="list-group-item">
-          <button class="button button-rounded button-primary" onclick="goToUrl('/item/@{item.id}')">详情</button>
-        </li>
+        @if(item.showType=="日程"){
+          <li class="list-group-item">@item.content.split("#").head</li>
+        }
+      <li class="list-group-item">
+        <button class="button button-rounded button-primary" onclick="goToUrl('/item/@{item.id}')">详情</button>
+      </li>
       </ul>
       <div class="panel-body">
-        <p><font color="303f9f">@{item.abs}<p>
+        <p>
+        @if(item.showType=="日程"){
+          @(item.abs.split("#").drop(1).mkString("#"))
+        } else {@item.abs}<p>
       </div>
-    </div>
+    }
   }
 }

@@ -24,8 +24,7 @@ libraryDependencies ++= {
 //    "org.mongodb"         %%  "casbah"              % "3.1.1",
     "org.slf4j"           %   "slf4j-simple"        % "1.7.21",
     "org.scalikejdbc"     %%  "scalikejdbc"         % "2.5.0",
-    "com.h2database"      %   "h2"                  % "1.4.193",
-    "org.apache.httpcomponents" % "httpclient" % "4.5.2"
+    "com.h2database"      %   "h2"                  % "1.4.193"
   )
 }
 

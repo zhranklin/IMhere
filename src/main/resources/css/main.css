@@ -66,8 +66,8 @@ html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-	margin-top: 50px;
-	padding-bottom: 50px;
+	margin-top: 10px;
+	padding-bottom: 10px;
 }
 .main-view .mission-view {
 	margin-left: 5px;
@@ -77,7 +77,7 @@ html, body {
 	margin-left: 10px;
 	margin-right: 10px;
 }
-.mission-item img{
+.panel-heading img{
 	height: 25px;
 	width: auto;
 	border-radius: 50%;
@@ -86,7 +86,7 @@ html, body {
 .mission-item .glyphicon {
 	margin-right: 5px;
 }
-.list-group-item button {
+.panel button {
 	width: 100%;
 	background-color: rgba(8, 46, 84, 1);
 }
@@ -166,4 +166,8 @@ html, body {
 .create-bg {
 	background-color: rgba(8, 46, 84, 0.5);
 	height: 736px;
+}
+img.profile-head {
+	height: auto;
+	width: auto;
 }

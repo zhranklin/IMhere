@@ -1,8 +1,8 @@
 @import com.zhranklin.imhere.Models._
 @(item: Item)
-@li{@icon("hand-right")<font color="303f9f">类型：@{item.showType}</font>}
-@li{@icon("flag")<font color="303f9f">地点：@{item.place}</font>}
-@li{@icon("time")<font color="303f9f">添加时间：@{item.date}</font>}
+@li{@icon("hand-right")类型：@{item.showType}}
+@li{@icon("flag")地点：@{item.place}}
+@li{@icon("time")添加时间：@{item.date}}
 
 @li(i: Html) = {
   <li class="list-group-item"> @i </li>
